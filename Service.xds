@@ -1,0 +1,64 @@
+  <?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="service">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="goods"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="goods">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="goods_type"/>
+      </xs:sequence>
+      <xs:attribute name="description" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="goods_type">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="goods_type_subtype"/>
+      </xs:sequence>
+      <xs:attribute name="description" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="goods_type_subtype">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="product"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="product" maxOccurs="unbounded">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="manufacture"/>
+        <xs:element ref="model"/>
+        <xs:element ref="stamp"/>
+        <xs:element ref="color"/>
+        <xs:element ref="price"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="manufacture">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="model" type="xs:decimal"/>
+  <xs:element name="stamp" type="xs:date"/>
+  <xs:element name="color">
+    <xs:SimpleType>
+      <xs:restriction base ="xs:token">
+        <xs:pattern value ="\W*(\w+\W+){3,3}\w+\W*" />
+      </xs:restriction>
+    </xs:SimpleType>
+  <xs:element name="price" >
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:decimal">
+          <xs:attribute name="availability" use="required" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

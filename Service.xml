@@ -1,0 +1,15 @@
+<service>
+	<goods description="Product Name">
+		<goods_type description="Men's">
+			<goods_type_subtype>
+				<product>
+					<manufacture></manufacture>
+					<model>39.95</model>
+					<stamp>39.95</stamp>
+					<color>Red</color>
+					<price availability="True">39.95</price>
+				</product>
+			</goods_type_subtype>
+		</goods_type>
+	</goods>
+</service>

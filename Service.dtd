@@ -1,0 +1,44 @@
+<?xml encoding="UTF-8"?>
+
+<!ELEMENT service (goods)>
+<!ATTLIST service
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT goods (goods_type)>
+<!ATTLIST goods
+  xmlns CDATA #FIXED ''
+  description CDATA #REQUIRED>
+
+<!ELEMENT goods_type (goods_type_subtype)>
+<!ATTLIST goods_type
+  xmlns CDATA #FIXED ''
+  description CDATA #REQUIRED>
+
+<!ELEMENT goods_type_subtype (product)>
+<!ATTLIST goods_type_subtype
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT product (manufacture,model,stamp,color,price)>
+<!ATTLIST product
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT manufacture EMPTY>
+<!ATTLIST manufacture
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT model (#PCDATA)>
+<!ATTLIST model
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT stamp (#PCDATA)>
+<!ATTLIST stamp
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT color (#PCDATA)>
+<!ATTLIST color
+  xmlns CDATA #FIXED ''>
+
+<!ELEMENT price (#PCDATA)>
+<!ATTLIST price
+  xmlns CDATA #FIXED ''
+  availability NMTOKEN #REQUIRED>
